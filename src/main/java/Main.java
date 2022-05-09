@@ -1,23 +1,29 @@
-import models.Voter;
+import models.Elector;
+import models.Urn;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import com.github.javafaker.Faker;
 public class Main {
-    public Flux<Voter> votingPersons() {
-        return Flux.interval(Duration.ofSeconds(1)).map(s -> {
-            Voter voter = new Voter(false);
-            System.out.println("Eleitor presente na sala de votação: " + voter.getVoting_room());
-            return voter;
-        });
-    }
     public static void main(String[] args) {
-        List<Voter> candidates = List.of(new Voter(true), new Voter(true), new Voter(true));
-        Main main = new Main();
-
-        main.votingPersons().subscribe(voter -> {
-            System.out.println("Nome do eleitor: " + voter.getName());
-        });
+        Faker faker = Faker.instance();
+        String[] candidates = {new Elector(true).getName(), new Elector(true).getName(), new Elector(true).getName(), "Branco"};
+        Flux.interval(Duration.ofSeconds(1)).map(second -> {
+            Elector elector = new Elector(false);
+            elector.setElectionChoice(candidates[faker.random().nextInt(candidates.length)]);
+            return elector;
+        }).filter(elector -> Objects.equals(elector.getSituation(), "Regular")).subscribe(new Urn());
+        try {
+            Thread.sleep(60000);
+        } catch (InterruptedException ex) {
+            System.out.println("");
+        }
     }
 }

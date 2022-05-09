@@ -3,9 +3,10 @@ package models;
 import com.github.javafaker.Faker;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
-public class Voter {
+public class Elector {
     private String id;
     private String name;
     private String age;
@@ -32,7 +33,7 @@ public class Voter {
         this.voteDateTime = voteDateTime;
     }
 
-    public Voter(boolean candidate) {
+    public Elector(boolean candidate) {
         Faker faker = Faker.instance();
         String[] situations = {"Regular", "Irregular"};
         String[] voting_zones = {"72", "77", "79", "29", "00"};
