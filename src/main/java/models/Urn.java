@@ -34,10 +34,8 @@ public class Urn implements Subscriber<Elector> {
         System.out.println("Informativo:\nEleitor " + elector.getName() + " presente na votação\nVoto computado para candidato: " + elector.getElectionChoice() + "\nResultado parcial:");
         for (String candidate :
                 results.keySet()) {
-            System.out.println(candidate + ": " + results.get(candidate) + "; ");
+            System.out.println(candidate + ": " + results.get(candidate) + ";");
         }
-        System.out.println("\n------------------------------------------");
-
     }
 
     @Override
@@ -47,6 +45,15 @@ public class Urn implements Subscriber<Elector> {
 
     @Override
     public void onComplete() {
-        System.out.println("Completed!");
+        results.remove("Branco");
+        String winner = "";
+        Integer votes = 0;
+        for (String candidate : results.keySet()) {
+            if (results.get(candidate) > votes ) {
+                votes = results.get(candidate);
+                winner = candidate;
+            }
+        }
+        System.out.println("Vencedor por maioria: " + winner);
     }
 }
