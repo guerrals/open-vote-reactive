@@ -1,6 +1,8 @@
 package models;
 
 import com.github.javafaker.Faker;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -102,5 +104,8 @@ public class Elector {
     public void setCandidate(boolean candidate) {
         isCandidate = candidate;
     }
+
+
+
 }
 

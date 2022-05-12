@@ -6,22 +6,21 @@ import org.reactivestreams.Subscription;
 import java.util.*;
 
 public class Urn implements Subscriber<Elector> {
-    private Map<String, Integer> results = new HashMap<String, Integer>();
+    private Map<String, Integer> urnResults = new HashMap<String, Integer>();
 
-    public Map<String, Integer> getResults() {
-        return results;
+    public Map<String, Integer> getUrnResults() {
+        return urnResults;
     }
 
-    public void setResults(Elector elector) {
-        if (this.results.containsKey(elector.getElectionChoice())) {
-            int qtdVotes = this.results.get(elector.getElectionChoice());
+    public void setUrnResults(Elector elector) {
+        if (this.urnResults.containsKey(elector.getElectionChoice())) {
+            int qtdVotes = this.urnResults.get(elector.getElectionChoice());
             qtdVotes = qtdVotes + 1;
-            this.results.put(elector.getElectionChoice(), qtdVotes);
+            this.urnResults.put(elector.getElectionChoice(), qtdVotes);
         } else {
-            this.results.put(elector.getElectionChoice(), 1);
+            this.urnResults.put(elector.getElectionChoice(), 1);
         }
     }
-
 
     @Override
     public void onSubscribe(Subscription s) {
@@ -30,11 +29,13 @@ public class Urn implements Subscriber<Elector> {
 
     @Override
     public void onNext(Elector elector) {
-        setResults(elector);
-        System.out.println("Informativo:\nEleitor " + elector.getName() + " presente na votação\nVoto computado para candidato: " + elector.getElectionChoice() + "\nResultado parcial:");
-        for (String candidate :
-                results.keySet()) {
-            System.out.println(candidate + ": " + results.get(candidate) + ";");
+        setUrnResults(elector);
+        System.out.println("Informativo:\nEleitor " +
+                elector.getName() +
+                " presente na sessão de votação\nVoto computado para candidato: " +
+                elector.getElectionChoice() + "\nResultado parcial:");
+        for (String candidate : urnResults.keySet()) {
+            System.out.println(candidate + ": " + urnResults.get(candidate) + ";");
         }
     }
 
@@ -45,15 +46,15 @@ public class Urn implements Subscriber<Elector> {
 
     @Override
     public void onComplete() {
-        results.remove("Branco");
+        urnResults.remove("Branco");
         String winner = "";
         Integer votes = 0;
-        for (String candidate : results.keySet()) {
-            if (results.get(candidate) > votes ) {
-                votes = results.get(candidate);
+        for (String candidate : urnResults.keySet()) {
+            if (urnResults.get(candidate) > votes ) {
+                votes = urnResults.get(candidate);
                 winner = candidate;
             }
         }
-        System.out.println("Vencedor por maioria: " + winner);
+        System.out.println("Votação encerrada!\nVencedor por maioria: " + winner);
     }
 }
