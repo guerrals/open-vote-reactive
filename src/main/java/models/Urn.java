@@ -5,8 +5,21 @@ import org.reactivestreams.Subscription;
 
 import java.util.*;
 
-public class Urn implements Subscriber<Elector> {
+public class Urn implements Subscriber<Elector>  {
+    public Integer getUrnNumber() {
+        return urnNumber;
+    }
+
+    public void setUrnNumber(Integer urnNumber) {
+        this.urnNumber = urnNumber;
+    }
+
+    private Integer urnNumber;
     private Map<String, Integer> urnResults = new HashMap<String, Integer>();
+
+    public Urn(Integer number) {
+        this.urnNumber = number;
+    }
 
     public Map<String, Integer> getUrnResults() {
         return urnResults;
@@ -14,9 +27,7 @@ public class Urn implements Subscriber<Elector> {
 
     public void setUrnResults(Elector elector) {
         if (this.urnResults.containsKey(elector.getElectionChoice())) {
-            int qtdVotes = this.urnResults.get(elector.getElectionChoice());
-            qtdVotes = qtdVotes + 1;
-            this.urnResults.put(elector.getElectionChoice(), qtdVotes);
+            this.urnResults.put(elector.getElectionChoice(), this.urnResults.get(elector.getElectionChoice()) + 1);
         } else {
             this.urnResults.put(elector.getElectionChoice(), 1);
         }
@@ -30,12 +41,12 @@ public class Urn implements Subscriber<Elector> {
     @Override
     public void onNext(Elector elector) {
         setUrnResults(elector);
-        System.out.println("Informativo:\nEleitor " +
+        System.out.println("\nInformativo:\nEleitor " +
                 elector.getName() +
                 " presente na sessão de votação\nVoto computado para candidato: " +
-                elector.getElectionChoice() + "\nResultado parcial:");
+                elector.getElectionChoice() + "\nContagem de votos da urna:");
         for (String candidate : urnResults.keySet()) {
-            System.out.println(candidate + ": " + urnResults.get(candidate) + ";");
+            System.out.println(candidate + ": " + urnResults.get(candidate));
         }
     }
 
@@ -46,15 +57,6 @@ public class Urn implements Subscriber<Elector> {
 
     @Override
     public void onComplete() {
-        urnResults.remove("Branco");
-        String winner = "";
-        Integer votes = 0;
-        for (String candidate : urnResults.keySet()) {
-            if (urnResults.get(candidate) > votes ) {
-                votes = urnResults.get(candidate);
-                winner = candidate;
-            }
-        }
-        System.out.println("Votação encerrada!\nVencedor por maioria: " + winner);
+        System.out.println("Votação na urna " + getUrnNumber() + " encerrada!");
     }
 }

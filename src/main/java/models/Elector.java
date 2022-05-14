@@ -105,7 +105,5 @@ public class Elector {
         isCandidate = candidate;
     }
 
-
-
 }
 
