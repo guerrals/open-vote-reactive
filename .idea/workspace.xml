@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac199b5-59b6-4df1-aa15-c2696a3a68cf" name="Changes" comment="Add urns">
+    <list default="true" id="cac199b5-59b6-4df1-aa15-c2696a3a68cf" name="Changes" comment="Refactoring, soutv election results">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" beforeDir="false" />
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652342118892</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring, soutv election results">
+      <created>1652533791193</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652533791193</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +154,7 @@
     <MESSAGE value="progress" />
     <MESSAGE value="Range de 100 eleitores, Urn subscriber" />
     <MESSAGE value="Add urns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add urns" />
+    <MESSAGE value="Refactoring, soutv election results" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, soutv election results" />
   </component>
 </project>
