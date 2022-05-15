@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cac199b5-59b6-4df1-aa15-c2696a3a68cf" name="Changes" comment="Refactoring, soutv election results">
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Elector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Elector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Urn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Urn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/ElectorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/UrnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/UrnTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -59,6 +61,7 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="models" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -66,7 +69,7 @@
       <command value="electorFlux" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UrnTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="open_vote_reactive" />
@@ -74,8 +77,69 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="open_vote_reactive" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="open_vote_reactive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UrnTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrnTest.onError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="open_vote_reactive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UrnTest" />
+      <option name="METHOD_NAME" value="onError" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrnTest.onNext" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="open_vote_reactive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UrnTest" />
+      <option name="METHOD_NAME" value="onNext" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UrnTest" />
+        <item itemvalue="JUnit.UrnTest.onNext" />
+        <item itemvalue="JUnit.UrnTest.onError" />
+        <item itemvalue="JUnit.MainTest.main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -124,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652533791193</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactoring, soutv election results">
+      <created>1652533806091</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652533806091</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,5 +227,25 @@
     <MESSAGE value="Add urns" />
     <MESSAGE value="Refactoring, soutv election results" />
     <option name="LAST_COMMIT_MESSAGE" value="Refactoring, soutv election results" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <dependency master-id="0" />
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" log-message="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="java-exception">
+          <dependency id="0" />
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

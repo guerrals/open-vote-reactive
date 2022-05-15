@@ -1,15 +1,22 @@
+import com.github.javafaker.Faker;
 import models.ElectionZone;
 import models.Elector;
 import models.Urn;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
-import com.github.javafaker.Faker;
+import reactor.test.StepVerifier;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Main {
-    public static void main(String[] args) {
+import static org.junit.jupiter.api.Assertions.*;
+
+class MainTest {
+
+    @Test
+    void main() {
         Faker faker = Faker.instance();
         /*Array estático de 4 candidatos, incluindo o voto em branco.
         Os candidatos são representados pelos nomes.
@@ -20,15 +27,15 @@ public class Main {
         Map<String, Integer> results = new HashMap<String, Integer>();
 
         // Fluxo de zonas eleitorais da votação
-        Flux<ElectionZone> electionZoneFlux = Flux.range(0, 10).map(integer -> {
+        Flux<ElectionZone> electionZoneFlux = Flux.range(0, 2).map(integer -> {
             return new ElectionZone(String.valueOf(integer));
         });
 
         // Declaração do método executado na subscrição do fluxo de zonas
         electionZoneFlux.subscribe(electionZone -> {
             // É criado um fluxo de urnas e um fluxo de eleitores
-            Flux<Urn> urnFlux = Flux.range(0, 8).map(Urn::new);
-            Flux<Elector> electorFlux = Flux.range(0, 100).map(number -> {
+            Flux<Urn> urnFlux = Flux.range(0, 4).map(Urn::new);
+            Flux<Elector> electorFlux = Flux.range(0, 10).map(number -> {
                 /*
                 Declara um eleitor e assinala seu voto de forma aleatória
                 para um integrante do array de candidatos
@@ -39,6 +46,8 @@ public class Main {
                 return elector;
                 // Filtra os eleitores de acordo com a situação eleitoral
             }).filter(elector -> Objects.equals(elector.getSituation(), "Regular"));
+
+            StepVerifier.create(electorFlux).assertNext(Assertions::assertNotNull);
 
             // Declaração do método executado na subscrição do fluxo de urnas
             urnFlux.subscribe(urn -> {
@@ -57,27 +66,9 @@ public class Main {
                     }
                 });
             });
+            StepVerifier.create(urnFlux).assertNext(Assertions::assertNotNull).expectComplete();;
 
-            System.out.println("\nResultados da zona eleitoral: " + electionZone.getZone());
-            electionZone.printZoneResults();
         });
-        electionZoneFlux.subscribe();
-
-        results.remove("Branco");
-        String winner = "";
-        Integer votes = 0;
-        for (String candidate : results.keySet()) {
-            if (results.get(candidate) > votes ) {
-                votes = results.get(candidate);
-                winner = candidate;
-            }
-        }
-        System.out.println("\nResultado das eleições:\nCandidato eleito: " + winner +"\n" + winner + " Candidato(a) com " + votes + " votos");
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            System.out.println("");
-        }
+        StepVerifier.create(electionZoneFlux).assertNext(Assertions::assertNotNull).expectComplete();
     }
 }

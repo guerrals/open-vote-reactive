@@ -6,14 +6,6 @@ import org.reactivestreams.Subscription;
 import java.util.*;
 
 public class Urn implements Subscriber<Elector>  {
-    public Integer getUrnNumber() {
-        return urnNumber;
-    }
-
-    public void setUrnNumber(Integer urnNumber) {
-        this.urnNumber = urnNumber;
-    }
-
     private Integer urnNumber;
     private Map<String, Integer> urnResults = new HashMap<String, Integer>();
 
@@ -21,6 +13,13 @@ public class Urn implements Subscriber<Elector>  {
         this.urnNumber = number;
     }
 
+    public Integer getUrnNumber() {
+        return urnNumber;
+    }
+
+    public void setUrnNumber(Integer urnNumber) {
+        this.urnNumber = urnNumber;
+    }
     public Map<String, Integer> getUrnResults() {
         return urnResults;
     }
@@ -40,13 +39,13 @@ public class Urn implements Subscriber<Elector>  {
 
     @Override
     public void onNext(Elector elector) {
-        setUrnResults(elector);
+        this.setUrnResults(elector);
         System.out.println("\nInformativo:\nEleitor " +
                 elector.getName() +
                 " presente na sessão de votação\nVoto computado para candidato: " +
                 elector.getElectionChoice() + "\nContagem de votos da urna:");
-        for (String candidate : urnResults.keySet()) {
-            System.out.println(candidate + ": " + urnResults.get(candidate));
+        for (String candidate : this.urnResults.keySet()) {
+            System.out.println(candidate + ": " + this.urnResults.get(candidate));
         }
     }
 
