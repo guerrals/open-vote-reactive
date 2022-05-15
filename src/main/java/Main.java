@@ -7,7 +7,10 @@ import com.github.javafaker.Faker;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
+/*
+* Nome: Jefferson William de Paiva Guerra
+* Matrícula: 20180122400
+* */
 public class Main {
     public static void main(String[] args) {
         Faker faker = Faker.instance();
@@ -20,15 +23,15 @@ public class Main {
         Map<String, Integer> results = new HashMap<String, Integer>();
 
         // Fluxo de zonas eleitorais da votação
-        Flux<ElectionZone> electionZoneFlux = Flux.range(0, 10).map(integer -> {
+        Flux<ElectionZone> electionZoneFlux = Flux.range(0, 5).map(integer -> {
             return new ElectionZone(String.valueOf(integer));
         });
 
         // Declaração do método executado na subscrição do fluxo de zonas
         electionZoneFlux.subscribe(electionZone -> {
             // É criado um fluxo de urnas e um fluxo de eleitores
-            Flux<Urn> urnFlux = Flux.range(0, 8).map(Urn::new);
-            Flux<Elector> electorFlux = Flux.range(0, 100).map(number -> {
+            Flux<Urn> urnFlux = Flux.range(0, 5).map(Urn::new);
+            Flux<Elector> electorFlux = Flux.range(0, 50).map(number -> {
                 /*
                 Declara um eleitor e assinala seu voto de forma aleatória
                 para um integrante do array de candidatos

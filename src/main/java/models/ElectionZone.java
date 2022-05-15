@@ -36,12 +36,12 @@ public class ElectionZone {
         // Para cada candidato no array de candidatos (chaves do map urnResults)
         for (String candidate : urnResults.keySet()) {
             // Caso o 'zoneResults' tenha o candidato como chave
-            if (zoneResults.containsKey(candidate)) {
+            if (this.zoneResults.containsKey(candidate)) {
                 // Atualiza o candidato no map com o número de votos da urna + os votos atuais
-                zoneResults.put(candidate, urnResults.get(candidate) + zoneResults.get(candidate));
+                this.zoneResults.put(candidate, urnResults.get(candidate) + this.zoneResults.get(candidate));
             } else {
                 // Cria o candidatao no 'zoneResults' inserindo o número de votos da urna como valor
-                zoneResults.put(candidate, urnResults.get(candidate));
+                this.zoneResults.put(candidate, urnResults.get(candidate));
             }
         }
     }

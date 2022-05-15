@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac199b5-59b6-4df1-aa15-c2696a3a68cf" name="Changes" comment="Refactoring, soutv election results">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
+    <list default="true" id="cac199b5-59b6-4df1-aa15-c2696a3a68cf" name="Changes" comment="Tests added, human-readable prints, zoneFlux added, project FINISHED!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Urn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Urn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/ElectorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/UrnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/UrnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ElectionZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
       <command value="electorFlux" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UrnTest">
+  <component name="RunManager" selected="JUnit.MainTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="open_vote_reactive" />
@@ -77,12 +74,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="open_vote_reactive" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="main" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.UrnTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UrnTest.onNext" />
         <item itemvalue="JUnit.UrnTest.onError" />
-        <item itemvalue="JUnit.MainTest.main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652533806091</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tests added, human-readable prints, zoneFlux added, project FINISHED!">
+      <created>1652574430295</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652574430295</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,7 +229,8 @@
     <MESSAGE value="Range de 100 eleitores, Urn subscriber" />
     <MESSAGE value="Add urns" />
     <MESSAGE value="Refactoring, soutv election results" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, soutv election results" />
+    <MESSAGE value="Tests added, human-readable prints, zoneFlux added, project FINISHED!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests added, human-readable prints, zoneFlux added, project FINISHED!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

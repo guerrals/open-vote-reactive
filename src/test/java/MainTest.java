@@ -47,7 +47,7 @@ class MainTest {
                 // Filtra os eleitores de acordo com a situação eleitoral
             }).filter(elector -> Objects.equals(elector.getSituation(), "Regular"));
 
-            StepVerifier.create(electorFlux).assertNext(Assertions::assertNotNull);
+            StepVerifier.create(electorFlux).assertNext(Assertions::assertNotNull).expectComplete();
 
             // Declaração do método executado na subscrição do fluxo de urnas
             urnFlux.subscribe(urn -> {
